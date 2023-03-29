@@ -9,12 +9,14 @@ import Alamofire
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
 
+    @IBOutlet weak var searchbar: UISearchBar!
     @IBOutlet weak var datatable: UITableView!
     var arr : [WelcomeElement] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dda()
+        searchbar.placeholder = "search here..."
     }
     
 
@@ -50,6 +52,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.lb1.text = "\(arr[indexPath.row].name!.common)"
         cell.lb2.text = "\(arr[indexPath.row].name!.official)"
         cell.imgview.image = stringToImg(link: arr[indexPath.row].flags!.png)
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
